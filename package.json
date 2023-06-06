@@ -5,7 +5,14 @@
   "main": "index.js",
   "author": "titsex",
   "license": "MIT",
-  "keywords": ["Discord", "Bot", "Distube", "Localization", "Music", "Distube"],
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Distube",
+    "Localization",
+    "Music",
+    "Distube"
+  ],
   "scripts": {
     "start": "node ./build/index.js",
     "build": "rimraf ./build && tsc --project ./tsconfig.json && tsc-alias --project ./tsconfig.json",
