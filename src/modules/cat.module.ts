@@ -1,5 +1,5 @@
 import CatCommand from '@command/cat.command'
-import CatAnswer from '@answer/cat.answer'
+import GifAnswer from '@answer/gif.answer'
 
 import { ICommand } from '@types'
 
@@ -11,7 +11,7 @@ const CatModule: ICommand = {
         try {
             await interaction.editReply({ files: [`${process.env.CAT_SERVICE_API_URL}/cat/gif.gif`] })
         } catch {
-            await interaction.editReply({ content: CatAnswer[interaction.location ?? 'en'].error })
+            await interaction.editReply({ content: GifAnswer[interaction.location ?? 'en'].error })
         }
     },
 }
