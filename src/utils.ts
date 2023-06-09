@@ -1,8 +1,7 @@
+import { CustomInteraction, ICommand } from '@types'
 import { readdirSync, statSync } from 'fs'
 import { REST, Routes } from 'discord.js'
 import { Logger } from '@class/Logger'
-import { pathToFileURL } from 'url'
-import { CustomInteraction, ICommand } from '@types'
 import { join } from 'path'
 
 export const getDate = () => {
@@ -31,10 +30,10 @@ export async function fetchCommands(path: string, commands: ICommand[] = []): Pr
         const isDirectory = (await statSync(filePath)).isDirectory()
 
         if (isDirectory) await fetchCommands(filePath, commands)
-        else commands.push(await import(pathToFileURL(filePath).toString()))
+        else commands.push(await import(filePath))
     }
 
-    return commands.map((command: ICommand) => Object.values(command)[1].default)
+    return commands.map((command: ICommand) => Object.values(command)[0])
 }
 
 export async function extendInteraction(interaction: CustomInteraction) {

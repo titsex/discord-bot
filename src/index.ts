@@ -2,19 +2,20 @@ import { config } from 'dotenv'
 config()
 
 import InteractionHandler from '@handler/interaction.handler'
+import FinishHandler from '@handler/finish.handler'
 import ReadyHandler from '@handler/ready.handler'
+import EmptyHandler from '@handler/empty.handler'
+import CrashHandler from '@handler/crash.handler'
+import ErrorHandler from '@handler/error.handler'
 import PlayHandler from '@handler/play.handler'
-import DisTube from 'distube'
 
 import { Client, GatewayIntentBits } from 'discord.js'
 import { Logger } from '@class/Logger'
 import { fetchCommands } from '@utils'
 import { CustomClient } from '@types'
+import { DisTube } from 'distube'
 import { join } from 'path'
-import EmptyHandler from '@handler/empty.handler'
-import FinishHandler from '@handler/finish.handler'
-import CrashHandler from '@handler/crash.handler'
-import ErrorHandler from '@handler/error.handler'
+import TraceMoe from 'moe-api'
 
 export const client = new Client({
     intents: [
@@ -39,6 +40,13 @@ const main = async () => {
         leaveOnFinish: true,
         emptyCooldown: 0,
         nsfw: true,
+    })
+
+    client.moe = new TraceMoe({
+        cutBorders: false,
+        anilistInfo: true,
+        mute: false,
+        size: 1,
     })
 
     client.distube.on('playSong', PlayHandler)

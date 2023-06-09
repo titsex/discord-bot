@@ -1,11 +1,6 @@
-import type {
-    SlashCommandBuilder,
-    ChatInputCommandInteraction,
-    Locale,
-    GuildMember,
-    InteractionResponse,
-} from 'discord.js'
+import type { SlashCommandBuilder, ChatInputCommandInteraction, GuildMember, InteractionResponse } from 'discord.js'
 
+import TraceMoe from 'moe-api'
 import DisTube from 'distube'
 
 import { Client } from 'discord.js'
@@ -37,6 +32,7 @@ export interface CustomInteraction extends ChatInputCommandInteraction {
 
 export class CustomClient extends Client {
     distube!: DisTube
+    moe!: TraceMoe
 }
 
 export type IAnswerLanguages = 'ru' | 'en'

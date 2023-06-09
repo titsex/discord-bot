@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "CommonJS",
-    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "target": "ESNext",
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
