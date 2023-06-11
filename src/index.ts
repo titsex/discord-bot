@@ -8,6 +8,7 @@ import EmptyHandler from '@handler/empty.handler'
 import CrashHandler from '@handler/crash.handler'
 import ErrorHandler from '@handler/error.handler'
 import PlayHandler from '@handler/play.handler'
+import TraceMoe from 'moe-api'
 
 import { Client, GatewayIntentBits } from 'discord.js'
 import { Logger } from '@class/Logger'
@@ -15,7 +16,6 @@ import { fetchCommands } from '@utils'
 import { CustomClient } from '@types'
 import { DisTube } from 'distube'
 import { join } from 'path'
-import TraceMoe from 'moe-api'
 
 export const client = new Client({
     intents: [
