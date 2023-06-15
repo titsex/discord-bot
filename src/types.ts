@@ -5,6 +5,11 @@ import DisTube from 'distube'
 
 import { Client } from 'discord.js'
 
+export class CustomClient extends Client {
+    distube!: DisTube
+    moe!: TraceMoe
+}
+
 export enum COLORS {
     NONE = '\x1b[0',
     CYAN = '\x1b[36',
@@ -17,10 +22,27 @@ export enum COLOR_TYPES {
     BOLD = ';1m',
 }
 
-export type ICommandType = 'music'
+export enum MMR_CODES {
+    SOLO = 420,
+    FLEX = 400,
+    ARAM = 450,
+    NORMAL = 430,
+}
+
+export enum RANK_NAMES {
+    Iron = 'Железо',
+    Bronze = 'Бронза',
+    Silver = 'Серебро',
+    Gold = 'Золото',
+    Palatine = 'Платина',
+    Diamond = 'Алмаз',
+    Master = 'Мастер',
+    Grandmaster = 'Грандмастер',
+    Challenger = 'Претендент',
+}
 
 export interface ICommand {
-    type?: ICommandType
+    type?: CommandType
     data: SlashCommandBuilder | Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>
     execute: (interaction: CustomInteraction, member?: GuildMember) => unknown
 }
@@ -30,17 +52,27 @@ export interface CustomInteraction extends ChatInputCommandInteraction {
     location: string
 }
 
-export class CustomClient extends Client {
-    distube!: DisTube
-    moe!: TraceMoe
-}
-
-export type IAnswerLanguages = 'ru' | 'en'
-
 export interface IAnswerTranslation {
     [key: string]: string
 }
 
-export type IAnswer = {
-    [language in IAnswerLanguages]?: IAnswerTranslation
+export interface IChoose<T, K> {
+    name: T
+    value: K
 }
+
+export type ILolServer = IChoose<LoLServerType, LoLServerType>
+
+export type ILolMode = IChoose<LoLModeType, LoLModeType>
+
+export type IAnswer = {
+    [language in AnswerLanguageType]?: IAnswerTranslation
+}
+
+export type AnswerLanguageType = 'ru' | 'en'
+
+export type LoLServerType = 'euw' | 'na' | 'eune' | 'jp' | 'kr' | 'br' | 'lan' | 'ru' | 'oc' | 'tr'
+
+export type LoLModeType = 'SOLO' | 'FLEX' | 'ARAM' | 'NORMAL'
+
+export type CommandType = 'music'

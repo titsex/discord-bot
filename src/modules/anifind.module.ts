@@ -43,7 +43,7 @@ const PlayModule: ICommand = {
             embed.setThumbnail(argument.url)
 
             return await interaction.editReply({ embeds: [embed] })
-        } catch (error) {
+        } catch {
             return await interaction.editReply(AniFindAnswer[interaction.location ?? 'en'].error)
         }
     },

@@ -27,8 +27,7 @@ const YesOrNoModule: ICommand = {
             return await interaction.editReply({
                 files: [response.data.image],
             })
-        } catch (error) {
-            console.log(error)
+        } catch {
             await interaction.editReply({ content: GifAnswer[interaction.location ?? 'en'].error })
         }
     },
