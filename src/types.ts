@@ -34,7 +34,7 @@ export enum RANK_NAMES {
     Bronze = 'Бронза',
     Silver = 'Серебро',
     Gold = 'Золото',
-    Palatine = 'Платина',
+    Platinum = 'Платина',
     Diamond = 'Алмаз',
     Master = 'Мастер',
     Grandmaster = 'Грандмастер',

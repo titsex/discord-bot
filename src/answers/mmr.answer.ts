@@ -14,11 +14,11 @@ export default {
     ru: {
         error: 'Не удалось получить Ваш ММР, проверьте никнейм и сервер',
         title: 'ММР {arg} - {arg1}',
-        description: `Средний ранг врагов - {arg}`,
+        description: `Средний ранг врагов - {arg}\nРежим игры - {arg1}`,
     },
     en: {
         error: "Couldn't get your MMR, check the nickname and the server",
         title: '{arg} MMR is {arg1}',
-        description: 'Average enemy rank - {arg}',
+        description: 'Average enemy rank - {arg}\nGame mode - {arg1}',
     },
 } as ICatAnswer
